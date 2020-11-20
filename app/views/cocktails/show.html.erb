@@ -2,6 +2,12 @@
 
 <h2><%= @cocktail.name %></h2>
 
+<% if @cocktail.photo.present? %>
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= image_tag 'placeholder.png', width: 400 %>
+<% end %>
+
 <h1>dose</h1>
 <ul class="list-group">
   <% @cocktail.doses.each do |dose| %>
